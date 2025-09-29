@@ -1,0 +1,1 @@
+projects for a university course that is focused on using mathematics and programming for gene sequencing and comaprison

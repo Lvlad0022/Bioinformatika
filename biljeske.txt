@@ -1,0 +1,41 @@
+1.PREDAVANJE
+
+ideja je bila uvesti način usporedbe gena. Definirali smo dvije vrste sličnosti, te kakoo ih izračunati
+	
+1. ovisno o globalnom poravnanju
+za pocetak geni izgladju kao niz slova: AAATGCAT
+ako imamo dva gena duljina (moguće različitih duljina) poravnanje će biti dodavanje crtica između slova(crtica bi trebala predstavljati nedostatak gena) tako da budu zadovoljena pravila: broj simbola u oba gena mora biti jednak, ne smiju biti ctica iznad crtice
+primjer: geni su AAGTACCGA I AAGTC
+njihovo poravnanje:
+AA-G-TACCGA
+--AA-GT---C
+
+moramo uvest jos funkciju f koja prima dva simbola I daje nam realan broj(njihova sličnost), najčešće će za iste simbole davati pozitivan broj, za različite ili ako je crtica među imoblima negativan broj
+sličnost dva gena iste duljine zapisanih kao nizovi x1,x2,x3,...,xn I y1,...,yn će biti suma I od 1 do n f(xi,yi)
+
+optimalno globalno poravnanje je poravnanje za koje će biti maksimizirana sličnosti gena
+
+2.ovisno o lokalom poravnanju
+
+
+
+RAČUNANJE OPTIMALNIH PORAVNAJA
+optimalno poravnanje se dobiva dinamičkim programiranjem koristeći algoritam:
+score = zero[n+1,m+1]
+score[0,0]= score[1,0]= score[0,1]= 0
+for i in raange(1,n+1):
+	for j in range(1,m+1):
+		pamti[i,j] = max(pamti[i-1,j-1] + f(xi,yj)
+				 pamti[i-1,j] + f(xi,-)
+				 pami[i,j-1] + f(-,yi)
+				)
+to je brz algoritam koji koristi rekurziju danu gore, ona računa score za gene x[:i] i y[:j] tako da particionira se mogućnosti njihovog globalnog poravnanje na slučaje kada su zadnja dva simbola xi,yj, kada su xi,- i kada su -,yj
+i onda dobiva najveći score kao maksimum najvećih scoreova iz tih paricija, a svaki izraz u maksimumu u algoritmu je upravo najveći score neke od particija
+
+
+RAZGOVOR S PROFESOROM
+		
+									
+
+
+ 
